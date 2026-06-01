@@ -61,3 +61,19 @@ function updateStatistics(){
     ).textContent =
         buildTextChart(transactions);
 }
+
+// Сообщение пользователю
+function showMessage(text,type){
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+    message.textContent = text;
+    message.className = type;
+
+    setTimeout(() => {
+        message.textContent = "";
+    },3000);
+}
