@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор личных финансов</title>
+
+    <!-- Подключение CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>💰 Калькулятор личных финансов</h1>
+
+    <!-- Блок статистики -->
+    <div class="card">
+
+        <h2>Баланс</h2>
+
+        <div id="balance" class="balance">
+            0 ₽
+        </div>
+
+        <div class="summary">
+
+            <div class="income-box">
+                <h3>Доходы</h3>
+                <p id="incomeTotal">0 ₽</p>
+            </div>
+
+            <div class="expense-box">
+                <h3>Расходы</h3>
+                <p id="expenseTotal">0 ₽</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Форма добавления -->
+    <div class="card">
+
+        <h2>Добавить транзакцию</h2>
+
+        <form id="transactionForm">
+
+            <input
+                type="number"
+                id="amount"
+                placeholder="Сумма"
+                required
+            >
+
+            <select id="type">
+                <option value="income">Доход</option>
+                <option value="expense">Расход</option>
+            </select>
+
+            <select id="category">
+                <option>Еда</option>
+                <option>Транспорт</option>
+                <option>Жильё</option>
+                <option>Развлечения</option>
+                <option>Здоровье</option>
+                <option>Другие</option>
+            </select>
+
+            <input type="date" id="date">
+
+            <input
+                type="text"
+                id="comment"
+                placeholder="Комментарий"
+            >
+
+            <button type="submit">
+                Добавить
+            </button>
+
+        </form>
+
+        <div id="message"></div>
+
+    </div>
+
+    <!-- Фильтрация -->
+    <div class="card">
+
+        <h2>Фильтрация</h2>
+
+        <div class="filters">
+
+            <select id="filterType">
+                <option value="all">Все типы</option>
+                <option value="income">Доходы</option>
+                <option value="expense">Расходы</option>
+            </select>
+
+            <select id="filterCategory">
+                <option value="all">Все категории</option>
+                <option>Еда</option>
+                <option>Транспорт</option>
+                <option>Жильё</option>
+                <option>Развлечения</option>
+                <option>Здоровье</option>
+                <option>Другие</option>
+            </select>
+
+            <input type="date" id="filterDate">
+
+            <button id="applyFilters">
+                Фильтр
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Текстовый график -->
+    <div class="card">
+
+        <h2>Распределение расходов</h2>
+
+        <pre id="chart"></pre>
+
+    </div>
+
+    <!-- Таблица транзакций -->
+    <div class="card">
+
+        <h2>Транзакции</h2>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Тип</th>
+                    <th>Категория</th>
+                    <th>Сумма</th>
+                    <th>Комментарий</th>
+                    <th>Удалить</th>
+                </tr>
+            </thead>
+
+            <tbody id="transactionTable"></tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>
