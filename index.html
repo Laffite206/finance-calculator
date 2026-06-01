@@ -13,9 +13,12 @@
     <h1>Калькулятор личных финансов</h1>
 
     <div class="card">
+
         <h2>Баланс</h2>
 
-        <div id="balance" class="balance">0 ₽</div>
+        <div id="balance" class="balance">
+            0 ₽
+        </div>
 
         <div class="summary">
 
@@ -30,6 +33,7 @@
             </div>
 
         </div>
+
     </div>
 
     <div class="card">
@@ -46,20 +50,22 @@
             >
 
             <select id="type">
-                <option value="income">Доход</option>
-                <option value="expense">Расход</option>
+                <option value="income">
+                    Доход
+                </option>
+
+                <option value="expense">
+                    Расход
+                </option>
             </select>
 
-            <select id="category">
-                <option>Еда</option>
-                <option>Транспорт</option>
-                <option>Жильё</option>
-                <option>Развлечения</option>
-                <option>Здоровье</option>
-                <option>Другие</option>
-            </select>
+            <!-- Категории будут заполняться через JavaScript -->
+            <select id="category"></select>
 
-            <input type="date" id="date">
+            <input
+                type="date"
+                id="date"
+            >
 
             <input
                 type="text"
@@ -79,35 +85,64 @@
 
     <div class="card">
 
-    <h2>Фильтрация</h2>
+        <h2>Фильтрация</h2>
 
-    <div class="filters">
+        <div class="filters">
 
-        <select id="filterType">
-            <option value="all">Все типы</option>
-            <option value="income">Доходы</option>
-            <option value="expense">Расходы</option>
-        </select>
+            <select id="filterType">
 
-        <select id="filterCategory">
-            <option value="all">Все категории</option>
-            <option>Еда</option>
-            <option>Транспорт</option>
-            <option>Жильё</option>
-            <option>Развлечения</option>
-            <option>Здоровье</option>
-            <option>Другие</option>
-        </select>
+                <option value="all">
+                    Все типы
+                </option>
 
-        <input type="date" id="filterDate">
+                <option value="income">
+                    Доходы
+                </option>
 
-        <button id="applyFilters">
-            Фильтр
-        </button>
+                <option value="expense">
+                    Расходы
+                </option>
+
+            </select>
+
+            <select id="filterCategory">
+
+                <option value="all">
+                    Все категории
+                </option>
+
+                <optgroup label="Доходы">
+                    <option>Зарплата</option>
+                    <option>Премия</option>
+                    <option>Подработка</option>
+                    <option>Подарок</option>
+                    <option>Инвестиции</option>
+                </optgroup>
+
+                <optgroup label="Расходы">
+                    <option>Еда</option>
+                    <option>Транспорт</option>
+                    <option>Жильё</option>
+                    <option>Развлечения</option>
+                    <option>Здоровье</option>
+                </optgroup>
+
+                <option>Другие</option>
+
+            </select>
+
+            <input
+                type="date"
+                id="filterDate"
+            >
+
+            <button id="applyFilters">
+                Фильтр
+            </button>
+
+        </div>
 
     </div>
-
-</div>
 
     <div class="card">
 
@@ -124,6 +159,7 @@
         <table>
 
             <thead>
+
                 <tr>
                     <th>Дата</th>
                     <th>Тип</th>
@@ -132,6 +168,7 @@
                     <th>Комментарий</th>
                     <th>Удалить</th>
                 </tr>
+
             </thead>
 
             <tbody id="transactionTable"></tbody>
