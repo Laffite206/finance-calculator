@@ -60,3 +60,14 @@ showMessage(
 );
 
 this.reset();
+
+// Кнопка фильтрации
+document
+.getElementById("applyFilters")
+.addEventListener("click",function(){
+
+    const filtered =
+        filterTransactions();
+
+    renderTransactions(filtered);
+});
