@@ -53,3 +53,10 @@ document
 
     addTransaction(transaction);
 });
+
+showMessage(
+    "Транзакция добавлена",
+    "success"
+);
+
+this.reset();
