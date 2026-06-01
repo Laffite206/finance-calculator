@@ -4,24 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Калькулятор личных финансов</title>
-
-    <!-- Подключение CSS -->
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
 
-    <h1>💰 Калькулятор личных финансов</h1>
+    <h1>Калькулятор личных финансов</h1>
 
-    <!-- Блок статистики -->
     <div class="card">
-
         <h2>Баланс</h2>
 
-        <div id="balance" class="balance">
-            0 ₽
-        </div>
+        <div id="balance" class="balance">0 ₽</div>
 
         <div class="summary">
 
@@ -36,10 +30,8 @@
             </div>
 
         </div>
-
     </div>
 
-    <!-- Форма добавления -->
     <div class="card">
 
         <h2>Добавить транзакцию</h2>
@@ -85,40 +77,38 @@
 
     </div>
 
-    <!-- Фильтрация -->
     <div class="card">
 
-        <h2>Фильтрация</h2>
+    <h2>Фильтрация</h2>
 
-        <div class="filters">
+    <div class="filters">
 
-            <select id="filterType">
-                <option value="all">Все типы</option>
-                <option value="income">Доходы</option>
-                <option value="expense">Расходы</option>
-            </select>
+        <select id="filterType">
+            <option value="all">Все типы</option>
+            <option value="income">Доходы</option>
+            <option value="expense">Расходы</option>
+        </select>
 
-            <select id="filterCategory">
-                <option value="all">Все категории</option>
-                <option>Еда</option>
-                <option>Транспорт</option>
-                <option>Жильё</option>
-                <option>Развлечения</option>
-                <option>Здоровье</option>
-                <option>Другие</option>
-            </select>
+        <select id="filterCategory">
+            <option value="all">Все категории</option>
+            <option>Еда</option>
+            <option>Транспорт</option>
+            <option>Жильё</option>
+            <option>Развлечения</option>
+            <option>Здоровье</option>
+            <option>Другие</option>
+        </select>
 
-            <input type="date" id="filterDate">
+        <input type="date" id="filterDate">
 
-            <button id="applyFilters">
-                Фильтр
-            </button>
-
-        </div>
+        <button id="applyFilters">
+            Фильтр
+        </button>
 
     </div>
 
-    <!-- Текстовый график -->
+</div>
+
     <div class="card">
 
         <h2>Распределение расходов</h2>
@@ -127,7 +117,6 @@
 
     </div>
 
-    <!-- Таблица транзакций -->
     <div class="card">
 
         <h2>Транзакции</h2>
@@ -152,13 +141,13 @@
     </div>
 
 </div>
-<!-- Подключение JavaScript -->
-<script src="/storage.js"></script>
-<script src="/transactions.js"></script>
-<script src="/filters.js"></script>
-<script src="/statistics.js"></script>
-<script src="/ui.js"></script>
-<script src="/app.js"></script>
+
+<script src="js/storage.js"></script>
+<script src="js/transactions.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/statistics.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
 
 </body>
 </html>

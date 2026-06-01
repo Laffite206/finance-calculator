@@ -1,19 +1,14 @@
-// Главный массив
 let transactions = [];
 
-// Загрузка данных
 loadTransactions();
 
-// Отображение данных
 renderTransactions();
 
-// Подсчёт статистики
 updateStatistics();
 
-// Добавление транзакции
 document
 .getElementById("transactionForm")
-.addEventListener("submit",function(event){
+.addEventListener("submit", function(event){
 
     event.preventDefault();
 
@@ -22,10 +17,10 @@ document
             document.getElementById("amount").value
         );
 
-    if(amount <= 0){
+    if(amount <= 0 || isNaN(amount)){
 
         showMessage(
-            "Введите корректную сумму",
+            "Ошибка: введите корректную сумму",
             "error"
         );
 
@@ -45,26 +40,31 @@ document
             document.getElementById("category").value,
 
         date:
-            document.getElementById("date").value,
+            document.getElementById("date").value ||
+            new Date()
+            .toISOString()
+            .split("T")[0],
 
         comment:
             document.getElementById("comment").value
+
     };
 
     addTransaction(transaction);
+
+    showMessage(
+        "Транзакция добавлена",
+        "success"
+    );
+
+    this.reset();
 });
 
-showMessage(
-    "Транзакция добавлена",
-    "success"
-);
-
-this.reset();
-
-// Кнопка фильтрации
 document
 .getElementById("applyFilters")
-.addEventListener("click",function(){
+.addEventListener("click", function(event){
+
+    event.preventDefault();
 
     const filtered =
         filterTransactions();

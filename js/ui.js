@@ -44,17 +44,17 @@ function updateStatistics(){
     document.getElementById(
         "incomeTotal"
     ).textContent =
-        stats.income + "₽";
+        stats.income + " ₽";
 
     document.getElementById(
         "expenseTotal"
     ).textContent =
-        stats.expense + "₽";
+        stats.expense + " ₽";
 
     document.getElementById(
         "balance"
     ).textContent =
-        stats.balance + "₽";
+        stats.balance + " ₽";
 
     document.getElementById(
         "chart"

@@ -1,16 +1,19 @@
-//Подсчёт статистики
-function calculateStatistics(data){
+// Расчёт статистики
+function calculateStatistics(data) {
 
+    // Общая сумма доходов
     const income =
         data
-        .filter(t => t.type === "expense")
-        .reduce((sum,t) => sum + t.amount,0);
+        .filter(t => t.type === "income")
+        .reduce((sum, t) => sum + t.amount, 0);
 
+    // Общая сумма расходов
     const expense =
         data
         .filter(t => t.type === "expense")
-        .reduce((sum,t) => sum + t.amount,0);
+        .reduce((sum, t) => sum + t.amount, 0);
 
+    // Возвращаем объект статистики
     return {
         income,
         expense,
@@ -18,47 +21,49 @@ function calculateStatistics(data){
     };
 }
 
-//Текстовый график
-function buildTextChart(data){
+// Построение текстового графика расходов
+function buildTextChart(data) {
 
     const categories = {};
 
+    // Группировка расходов по категориям
     data
-    .filter(t => t.type === "expense")
-    .forEach(t => {
+        .filter(t => t.type === "expense")
+        .forEach(t => {
 
-        categories[t.category] =
-            (categories[t.category] || 0)
-            + t.amount;
- });
+            categories[t.category] =
+                (categories[t.category] || 0)
+                + t.amount;
+        });
 
+    // Общая сумма расходов
     const total =
         Object.values(categories)
-        .reduce((a,b)=>a+b,0);
+        .reduce((a, b) => a + b, 0);
 
-    if(total === 0){
+    if (total === 0) {
         return "Нет расходов";
     }
 
     let chart = "";
 
-    for(let category in categories){
+    // Формирование текстового графика
+    for (let category in categories) {
 
         const percent =
-        (
-            categories[category] /
-            total *
-            100
-        ).toFixed(1);
+            (
+                categories[category] /
+                total *
+                100
+            ).toFixed(1);
 
-    const bars =
-        
-    "█".repeat(
+        const bars =
+            "█".repeat(
                 Math.round(percent / 5)
             );
 
         chart +=
-            `${category}: ${bars} ${percent}%\n`;
+            `${category}\n${bars} ${percent}% (${categories[category]} ₽)\n\n`;
     }
 
     return chart;
