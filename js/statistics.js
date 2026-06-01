@@ -4,14 +4,14 @@ function calculateStatistics(data) {
     // Общая сумма доходов
     const income =
         data
-        .filter(t => t.type === "income")
-        .reduce((sum, t) => sum + t.amount, 0);
+            .filter(t => t.type === "income")
+            .reduce((sum, t) => sum + t.amount, 0);
 
     // Общая сумма расходов
     const expense =
         data
-        .filter(t => t.type === "expense")
-        .reduce((sum, t) => sum + t.amount, 0);
+            .filter(t => t.type === "expense")
+            .reduce((sum, t) => sum + t.amount, 0);
 
     // Возвращаем объект статистики
     return {
@@ -21,7 +21,7 @@ function calculateStatistics(data) {
     };
 }
 
-// Построение текстового графика расходов
+// Построение текстовой диаграммы расходов
 function buildTextChart(data) {
 
     const categories = {};
@@ -47,23 +47,27 @@ function buildTextChart(data) {
 
     let chart = "";
 
-    // Формирование текстового графика
+    // Формирование текстовой диаграммы
     for (let category in categories) {
 
-        const percent =
-            (
-                categories[category] /
-                total *
-                100
-            ).toFixed(1);
+        const amount =
+            categories[category];
 
+        const percent =
+            amount / total * 100;
+
+        // Минимум один блок для каждой категории
         const bars =
             "█".repeat(
-                Math.round(percent / 5)
+                Math.max(
+                    1,
+                    Math.round(percent / 5)
+                )
             );
 
         chart +=
-            `${category}\n${bars} ${percent}% (${categories[category]} ₽)\n\n`;
+            `${category}\n` +
+            `${bars} ${percent.toFixed(1)}% (${amount} ₽)\n\n`;
     }
 
     return chart;
