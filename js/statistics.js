@@ -13,7 +13,7 @@ function calculateStatistics(data) {
             .filter(t => t.type === "expense")
             .reduce((sum, t) => sum + t.amount, 0);
 
-    // Возвращаем объект статистики
+    // Возвращаю объект статистики
     return {
         income,
         expense,

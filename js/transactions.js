@@ -1,16 +1,16 @@
 // Добавление новой транзакции
 function addTransaction(transaction) {
 
-    // Добавляем объект в массив
+    // Добавляю объект в массив
     transactions.push(transaction);
 
-    // Сохраняем данные
+    // Сохраняю данные
     saveTransactions();
 
-    // Обновляем таблицу
+    // Обновляю таблицу
     renderTransactions();
 
-    // Пересчитываем статистику
+    // Пересчитываю статистику
     updateStatistics();
 }
 
@@ -22,7 +22,7 @@ function deleteTransaction(id) {
         return;
     }
 
-    // Оставляем все записи кроме удаляемой
+    // Оставляю все записи кроме удаляемой
     transactions =
         transactions.filter(
             item => item.id !== id
